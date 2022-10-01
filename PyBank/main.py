@@ -2,6 +2,10 @@
 import os
 import csv
 from statistics import mean
+import sys 
+
+#open file for results 
+sys.stdout = open("results.txt", "a")
 
 #set path for file
 csvpath = os.path.join("..", "PyBank", "Resources", "budget_data.csv")
@@ -77,3 +81,17 @@ with open(csvpath, 'r') as csvfile:
     print('Greatest Increase in Profits:  ' + str(date_increase) + ' ($' + str(profit_increase) + ')')
     print('Greatest Decrease in Profits:  ' + str(date_decrease) + ' ($' + str(profit_decrease) + ')')
 
+#close the results file 
+sys.stdout.close()
+
+#revert back to the terminal window 
+sys.stdout = sys.__stdout__
+
+#open the results file 
+with open('../PyBank/results.txt') as file:
+
+    #read the results file 
+    terminal = file.read()
+
+    #print the results to terminal 
+    print(terminal)
