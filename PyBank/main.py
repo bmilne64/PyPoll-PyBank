@@ -35,7 +35,7 @@ with open(csvpath, 'r') as csvfile:
         #count the total number of rows/months 
         total_months += 1
         
-        #for every row after the first, calacuate the change in value 
+        #for every row after the first, calculate the change in value 
         if total_months > 1:
 
             #the change is the current value - the stored prior value 
